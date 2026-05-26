@@ -16,7 +16,7 @@ name_on_order = st.text_input(":cup_with_straw: Name of the Smoothie :cup_with_s
 st.write('The name of your Smoothie:', name_on_order)
 cnx = st.connection("snowflake")
 session =cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 st.dataframe(data=my_dataframe, use_container_width=True)
 st.stop()
 
